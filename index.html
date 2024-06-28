@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>path finder sample-project</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="canvas-holder">
+        <canvas id="main"></canvas>
+    </div>
+    <div id="toolBar">
+        <p>remove all the walls</p>
+        <button id="clearButton">clear the canvas (c)</button>
+        <p>start the visualization</p>
+        <button id="visualize">visualize (r)</button>
+        <div class="checkbox-holder">
+            <p>do diagonals</p>
+            <label for="diagonals"></label><input type="checkbox" id="diagonals">
+        </div>
+        <div class="checkbox-holder">
+            <p>borders</p>
+            <label for="showBorders"></label><input type="checkbox" id="showBorders">
+        </div>
+        <button style="margin-top: 10px;" id="resetButton">reset path (x)</button>
+        <div class="vertical-holder">
+            <p style="margin-bottom: 3px;">testing environments<br><span style="font-size: 12px;">(could be impossible)</span></p>
+            <button id="chamber-random-blocks">random blocks</button>
+            <div class="spaceMaker"></div>
+            <button id="chamber-random-shapes">shapes</button>
+            <div class="spaceMaker"></div>
+            <button id="chamber-random-hole">random col</button>
+        </div>
+        <div class="vertical-holder">
+            <p style="margin-bottom: 5px;">toggle sounds:</p>
+            <button onclick="should_play_sounds = !should_play_sounds;" style="margin-bottom: 10px">toggle</button>
+        </div>
+        <p>made by<br>Amir Hossain Oroujlou<br>AKA: Integral<br>AKA: U.I.A<br>AKA: Cubical22
+        </p>
+    </div>
+    <button class="toolbar-button">+</button>
+
+    <!-- this script is used to play notes and sounds as wished -->
+    <script src="js/notes.js"></script>
+
+    <!-- this script holds the class that handles the forming blocks (for animation) -->
+    <script src="js/animations.js"></script>
+
+    <!-- this script is used to handle the pathfinder main mechanic -->
+    <script src="js/finder.js"></script>
+
+    <!-- this script holds the class for a single cell -->
+    <script src="js/cell.js"></script>
+
+    <!-- this is the main script that bounds everything on a single board -->
+    <script src="js/page.js"></script>
+
+    <!-- this script handles different testing areas by the button press event -->
+    <script src="js/chambers.js"></script>
+</body>
+</html>
