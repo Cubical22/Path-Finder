@@ -43,4 +43,42 @@ going from the end to start. Here's some of the use cases:
 
 and that's about it for the cells!
 
-<I'll add the rest later>
+## Board
+an array holding rows, holdings cells that form the entirety of the canvas.
+the number of rows and cols are defined using the `count` variable,
+in a way that the number of all cells is `count * count` or `count ^ 2`.
+In the code, this is defined as the `cells` array, and it's accessed from
+almost anywhere inside the project. displaying the cells, or running different algorithms,
+pretty much all, involve the use of this variable.
+
+The `addCells()` function in `page.js` handles adding the cells to the array at first.
+it also places the start and ending cells.
+
+## Clicks and Touches
+the web supports both mouse and keyboard, and touches, meaning that you
+can get almost the same experience on your mobile device as long as it opens web pages.
+to achieve this accessibility, the followings were performed:
+- handling input using 'mousedown', 'mousemove' and 'mouseup'
+- handling input using 'touchstart', 'touchmove' and 'touchend'
+
+There is an acceptable amount of similarities between the two methods
+that are performed at the same time. Let me explain a little about them.
+> The `mouse` variable is used to handle the actions performed by input.
+> despite its name, it is used for the functionality of both touch devices
+> and also the use of mouse and keyboard. `mouse.down` is used
+> to see whether input should be considered on the cells or not.
+> `mouse.state` defines what sort of action should be done!
+> 'wall' to place wall, 'empty' to clear cells, 'start' to move start
+> and 'end' to move the end cell. how these values are set and used
+> is deeply explained the code, specially the `page.js` file.
+
+now, how do the cells understand if they were pressed? it's really simple.
+the position of the click or touch is saved inside `mouse.x` and `mouse.y`.
+then, if the mouse or touch is down (`mouse.down`) then we will go through
+every single cell and check for a certain condition:
+- `cell.x  < mouse.x` and `cell.x + cellSize > mouse.x`
+- `cell.y  < mouse.y` and `cell.y + cellSize > mouse.y`
+
+which makes perfect sense! we are simply checking if the touch is
+inside the boundaries defined for every cell.
+[/media/boundaries.png][]
