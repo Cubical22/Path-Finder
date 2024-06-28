@@ -42,3 +42,5 @@ going from the end to start. Here's some of the use cases:
 - isPath, show and pathShow: variables used for setting the color of the cell based on.
 
 and that's about it for the cells!
+
+<I'll add the rest later>
